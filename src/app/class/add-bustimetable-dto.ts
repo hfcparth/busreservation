@@ -1,12 +1,12 @@
 
-
 export class AddBustimetableDto {
-    sDatetime:Date;
+  	sDatetime:Date;
 	dDatetime:Date;
 	sourcePlace:String;
 	desnPlace:String;
-	Blid:number;
+	blid:number;
 	sourceplaceid:number;
 	desnplaceid:number;
 	price:number;
+	id:Number
 }

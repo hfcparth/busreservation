@@ -9,11 +9,11 @@
           
           <!-- bus number -->
           <div class="form-group">
-            <label for="bustype">Bus Number</label>
-            <input type="number" formControlName="bustype" class="form-control" [(ngModel)]="addBtt.Blid"
+            <label for="bustype">Bus Id</label>
+            <input type="number" formControlName="bustype" class="form-control" [(ngModel)]="addBtt.blid"
             [ngClass]="{ 'is-invalid': submitted && f.bustype.errors }" />
             <div *ngIf="submitted && f.bustype.errors" class="invalid-feedback">
-              <div *ngIf="f.bustype.errors.required">Bus number</div>
+              <div *ngIf="f.bustype.errors.required">Bus Id</div>
             </div>
           </div>
 
@@ -41,29 +41,27 @@
           <!-- source -->
           <div class="form-group">
             <label for="source">Source</label>
-            <input type="number" formControlName="source" class="form-control" [(ngModel)]="addBtt.sourceplaceid"
-              [ngClass]="{ 'is-invalid': submitted && f.source.errors }" />
-              <div *ngIf="submitted && f.source.errors" class="invalid-feedback">
-              <div *ngIf="f.source.errors.required">Source required</div>
-            </div>
+            <select type="number" formControlName="source" id="srcplace" #splace>
+              <!--<option class="form-control" type="number" value="">Enter Source</option>-->
+              <option class="form-control" type="number" *ngFor="let p of places" [value]=p.pid>{{p.placeName}}</option>
+            </select>
           </div>
 
 
           <!-- destination -->
           <div class="form-group">
             <label for="desn">Destination</label>
-            <input type="number" formControlName="desn" class="form-control" [(ngModel)]="addBtt.desnplaceid"
-              [ngClass]="{ 'is-invalid': submitted && f.desn.errors }" />
-              <div *ngIf="submitted && f.desn.errors" class="invalid-feedback">
-              <div *ngIf="f.desn.errors.required">Source required</div>
-            </div>
+            <select type="number" id="desntplace" formControlName="desn" #dplace>
+              <!-- <option class="form-control" type="number" value="">Enter Destination</option> -->
+              <option class="form-control" type="number" *ngFor="let p of places" [value]=p.pid>{{p.placeName}}</option>
+            </select>
           </div>
 
           <!-- price -->
           <div class="form-group">
             <label>Price</label>
             <input type="number" formControlName="price" class="form-control" [(ngModel)]="addBtt.price"
-              [ngClass]="{ 'is-invalid': submitted }" />
+              [ngClass]="{ 'is-invalid': submitted && f.price.errors}" />
             <div *ngIf="submitted && f.price.errors" class="invalid-feedback">
               <div *ngIf="f.price.errors.required">Price required</div>
             </div>

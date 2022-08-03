@@ -24,12 +24,19 @@ public class Booking {
 	int seatno;
 	@OneToOne(cascade = CascadeType.ALL)
 	Payment payment;
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="btid")
 	Bustimetable bustimetable;
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="unid")
 	Unauthorizeduser unauthorizeduser;
+	
+	public Unauthorizeduser getUnauthorizeduser() {
+		return unauthorizeduser;
+	}
+	public void setUnauthorizeduser(Unauthorizeduser unauthorizeduser) {
+		this.unauthorizeduser = unauthorizeduser;
+	}
 	public int getId() {
 		return id;
 	}

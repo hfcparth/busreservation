@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.lti.busreservation.dto.Buslistdto;
+import com.lti.busreservation.dto.ViewDto;
 import com.lti.busreservation.models.Buslist;
 import com.lti.busreservation.repository.BuslistRepository;
 import com.lti.busreservation.service.BuslistService;
@@ -33,6 +34,12 @@ public class BuslistController {
 	  {
 	      return buslistService.addbusdetail(bs);
 	  }
+	 
+	 @PostMapping("/viewbus")
+	 public List<Buslistdto> getAdminbuslist(@Valid @RequestBody int viewDto)
+	 {
+		 return buslistService.getAdminbus(viewDto);
+	 }
 	
 }
 
